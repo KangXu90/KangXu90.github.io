@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Kang Xu</title>
+    <meta
+      name="description"
+      content="Research notes and practical writing by Kang Xu on quantum sensing, instrumentation, and materials physics."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">Kang Xu</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#about">About</a>
+        <a href="index.html#research">Research</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-icon" aria-hidden="true">T</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Blog</p>
+        <h1>Notes on quantum sensing, lab automation, and materials research.</h1>
+        <p>
+          This page is set up as a lightweight blog index. Each future post can start as a plain HTML file and later
+          move to a static-site generator if the writing grows.
+        </p>
+      </section>
+
+      <section class="section blog-list" aria-labelledby="drafts-title">
+        <div class="section-heading">
+          <p class="eyebrow">Draft Roadmap</p>
+          <h2 id="drafts-title">Good first posts</h2>
+        </div>
+        <article class="blog-card">
+          <p class="project-type">Quantum Sensing</p>
+          <h3>How I think about ODMR contrast and SNR in daily measurements</h3>
+          <p>
+            A practical post could explain the measurement chain, what changes contrast, and how to decide whether a
+            problem is optical, microwave, timing, or sample-related.
+          </p>
+        </article>
+        <article class="blog-card">
+          <p class="project-type">Instrumentation</p>
+          <h3>Trigger timing lessons from building an NV-center measurement platform</h3>
+          <p>
+            A useful engineering note could cover AWG, PulseBlaster, digitizer, laser modulation, and the debugging
+            habits that keep a multi-instrument system stable.
+          </p>
+        </article>
+        <article class="blog-card">
+          <p class="project-type">Career Notes</p>
+          <h3>From condensed matter physics to quantum instrumentation</h3>
+          <p>
+            A personal essay could connect graphene, 2D devices, optoelectronics, and quantum sensing into one coherent
+            research story for collaborators and industry readers.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Kang Xu</span>
+      <a href="index.html">Home</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
