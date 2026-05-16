@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Quantum sensing visual</title>
+  <desc id="desc">A stylized laboratory-inspired visual with spin orbits, magnetic resonance traces, and layered material motifs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102a43"/>
+      <stop offset="0.52" stop-color="#185a68"/>
+      <stop offset="1" stop-color="#f0b36a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="44%" cy="42%" r="40%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.82"/>
+      <stop offset="0.22" stop-color="#b9f7e0" stop-opacity="0.56"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="760" fill="url(#glow)"/>
+  <g fill="none" stroke="#f8efe3" stroke-opacity="0.2" stroke-width="2">
+    <path d="M83 620 C245 510 340 646 510 530 S875 376 1098 510"/>
+    <path d="M72 170 C250 70 390 250 548 162 S830 70 1118 176"/>
+    <path d="M130 398 C340 258 480 480 675 326 S916 220 1090 320"/>
+  </g>
+  <g transform="translate(600 370)">
+    <ellipse rx="310" ry="104" fill="none" stroke="#ffffff" stroke-width="5" stroke-opacity="0.58"/>
+    <ellipse rx="310" ry="104" fill="none" stroke="#ffffff" stroke-width="4" stroke-opacity="0.5" transform="rotate(60)"/>
+    <ellipse rx="310" ry="104" fill="none" stroke="#ffffff" stroke-width="4" stroke-opacity="0.5" transform="rotate(-60)"/>
+    <circle r="54" fill="#f8efe3"/>
+    <circle r="21" fill="#0d3b45"/>
+  </g>
+  <g stroke="#f8efe3" stroke-width="8" stroke-linecap="round" stroke-opacity="0.88">
+    <path d="M188 575 h96 m35 0 h62 m35 0 h126 m35 0 h82"/>
+    <path d="M760 150 h72 m36 0 h156"/>
+  </g>
+  <g fill="#f8efe3" fill-opacity="0.86">
+    <circle cx="230" cy="246" r="9"/>
+    <circle cx="312" cy="302" r="6"/>
+    <circle cx="930" cy="472" r="10"/>
+    <circle cx="1012" cy="420" r="6"/>
+    <circle cx="872" cy="236" r="7"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.2">
+    <rect x="98" y="92" width="180" height="18" rx="9"/>
+    <rect x="98" y="126" width="122" height="18" rx="9"/>
+    <rect x="894" y="608" width="208" height="18" rx="9"/>
+    <rect x="956" y="642" width="146" height="18" rx="9"/>
+  </g>
+</svg>

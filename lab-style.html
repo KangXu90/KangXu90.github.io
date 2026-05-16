@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kang Xu Lab Style</title>
+    <meta
+      name="description"
+      content="A lab-inspired alternate homepage for Kang Xu, focused on quantum sensing, magnetic resonance, and scientific instrumentation."
+    />
+    <link rel="stylesheet" href="lab-style.css" />
+  </head>
+  <body>
+    <header class="lab-header">
+      <a class="lab-mark" href="lab-style.html">Kang Xu</a>
+      <nav class="lab-nav" aria-label="Lab style navigation">
+        <a href="#research">Research</a>
+        <a href="#methods">Methods</a>
+        <a href="#publications">Publications</a>
+        <a href="blog.html">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="lab-hero">
+        <img src="assets/spin-lab-visual.svg" alt="Stylized spin resonance and quantum sensing visual" />
+        <div class="lab-hero-copy">
+          <p class="section-kicker">Quantum sensing / Magnetic resonance / Instrumentation</p>
+          <h1>Studying nanoscale interfaces through the quantum properties of spin.</h1>
+          <p>
+            I build NV-center measurement platforms that combine optics, microwave control, synchronized timing,
+            and software automation to probe adsorbed water, confined fluids, and low-dimensional materials.
+          </p>
+          <div class="hero-links">
+            <a href="#research">Explore Research</a>
+            <a href="assets/Kang%20Xu_CV.pdf" download>Download CV</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="lab-intro" id="research">
+        <div>
+          <p class="section-kicker">Research Direction</p>
+          <h2>Extending magnetic resonance into nanoscale and interfacial regimes.</h2>
+        </div>
+        <p>
+          My current work reimagines spin-based sensing as a practical tool for studying complex interfaces. By using
+          shallow color centers in diamond and carefully engineered pulse protocols, I focus on extracting useful
+          chemical and dynamical information from systems that are difficult to access with conventional NMR.
+        </p>
+      </section>
+
+      <section class="research-areas" aria-label="Research areas">
+        <article>
+          <span>01</span>
+          <h3>NV-Center Quantum Sensing</h3>
+          <p>ODMR, Rabi/Ramsey, XY8/CPMG, nanoscale NMR, drift tracking, and contrast/SNR optimization.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Interfacial Water and Confined Fluids</h3>
+          <p>Color-center-enabled measurements of adsorbed water, oil/water interfaces, and engineered nanochannels.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Scientific Instrumentation</h3>
+          <p>Laser optics, microwave/RF delivery, PulseBlaster/AWG timing, digitizers, Python/LabVIEW control.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>2D Materials and Devices</h3>
+          <p>Nanofabrication, cryogenic transport, optoelectronic characterization, and strain-tuning platforms.</p>
+        </article>
+      </section>
+
+      <section class="method-band" id="methods">
+        <div>
+          <p class="section-kicker">How I Work</p>
+          <h2>From physical question to reliable measurement pipeline.</h2>
+        </div>
+        <div class="method-grid">
+          <p>Design the measurement protocol and calibration path.</p>
+          <p>Integrate optics, RF/microwave hardware, triggering, and acquisition.</p>
+          <p>Automate parameter sweeps and day-to-day stability checks.</p>
+          <p>Translate raw signals into interpretable physical observables.</p>
+        </div>
+      </section>
+
+      <section class="publication-section" id="publications">
+        <div class="section-heading">
+          <p class="section-kicker">Selected Publications</p>
+          <h2>Recent work</h2>
+        </div>
+        <div class="publication-list">
+          <article>
+            <time>2025</time>
+            <h3>Nanoscale Color Center Sensing of Adsorbed Water in Contact with Oil</h3>
+            <p>Advanced Functional Materials, published online.</p>
+          </article>
+          <article>
+            <time>2025</time>
+            <h3>Slow water in engineered nano-channels revealed by color-center-enabled sensing</h3>
+            <p>Nano Letters 25, 9960.</p>
+          </article>
+          <article>
+            <time>2024</time>
+            <h3>Photoinduced charge injection from shallow point defects in diamond into water</h3>
+            <p>ACS Applied Materials & Interfaces 16, 37226-37233.</p>
+          </article>
+        </div>
+        <a class="text-link" href="https://scholar.google.com/citations?hl=en&user=DCqmV4AAAAAJ&inst=151474670492416252" target="_blank" rel="noreferrer">View Google Scholar</a>
+      </section>
+
+      <section class="news-section">
+        <div class="section-heading">
+          <p class="section-kicker">Notes Roadmap</p>
+          <h2>Future writing</h2>
+        </div>
+        <div class="news-list">
+          <a href="blog.html">
+            <time>Draft</time>
+            <span>How I think about ODMR contrast and SNR in daily measurements</span>
+          </a>
+          <a href="blog.html">
+            <time>Draft</time>
+            <span>Trigger timing lessons from building an NV-center measurement platform</span>
+          </a>
+          <a href="blog.html">
+            <time>Draft</time>
+            <span>From condensed matter physics to quantum instrumentation</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="lab-footer-cta" id="contact">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>Open to collaborations and quantum instrumentation opportunities.</h2>
+        </div>
+        <a href="mailto:kxu@ccny.cuny.edu">kxu@ccny.cuny.edu</a>
+      </section>
+    </main>
+
+    <footer class="lab-footer">
+      <span>Kang Xu, Ph.D.</span>
+      <nav aria-label="Footer navigation">
+        <a href="index.html">Current Style</a>
+        <a href="cv.html">Web CV</a>
+        <a href="blog.html">Blog</a>
+      </nav>
+    </footer>
+  </body>
+</html>

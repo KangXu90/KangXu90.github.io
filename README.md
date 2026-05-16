@@ -7,7 +7,9 @@ This is a lightweight static personal website for Kang Xu, Ph.D.
 - `index.html`: main research profile and homepage
 - `cv.html`: web version of the CV
 - `blog.html`: blog index and writing roadmap
+- `lab-style.html`: alternate lab-inspired homepage for style comparison
 - `styles.css`: shared visual styles
+- `lab-style.css`: styles for the alternate lab-inspired homepage
 - `script.js`: theme toggle and footer year
 - `assets/`: static files such as PDFs, figures, and diagrams
 
@@ -34,3 +36,16 @@ Good first post categories:
 - Instrumentation: AWG, PulseBlaster, digitizers, VISA/SCPI, LabVIEW/Python control
 - Lab practice: drift tracking, SNR optimization, debugging measurement systems
 - Career/research story: from 2D materials to quantum sensing instrumentation
+
+## Comparing Homepage Styles
+
+- Current personal profile style: `index.html`
+- Lab-inspired style: `lab-style.html`
+
+On GitHub Pages:
+
+- `https://kangxu90.github.io/`
+- `https://kangxu90.github.io/lab-style.html`
+
+To make the lab-inspired version the main homepage later, replace `index.html` with the contents of `lab-style.html`
+and update asset/style references as needed.
