@@ -49,3 +49,22 @@ document.querySelectorAll(".featured-work-card[data-href]").forEach((card) => {
     }
   });
 });
+
+document.querySelectorAll(".research-publication-item[data-href]").forEach((item) => {
+  item.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      return;
+    }
+    window.location.href = item.dataset.href;
+  });
+
+  item.addEventListener("keydown", (event) => {
+    if (event.target.closest("a")) {
+      return;
+    }
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      window.location.href = item.dataset.href;
+    }
+  });
+});

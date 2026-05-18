@@ -210,11 +210,19 @@ a {
 .profile-panel {
   display: grid;
   gap: 24px;
+  width: min(100%, 360px);
+  max-width: 100%;
   padding: clamp(22px, 4vw, 32px);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+  justify-self: end;
+  justify-items: center;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.profile-panel > div,
+.quick-facts {
+  width: 100%;
 }
 
 .portrait {
@@ -244,6 +252,7 @@ a {
   color: var(--primary-strong);
   font-size: 1.18rem;
   font-weight: 900;
+  text-align: center;
 }
 
 .quick-facts {
@@ -259,10 +268,16 @@ a {
   display: flex;
   justify-content: space-between;
   gap: 16px;
+  align-items: baseline;
 }
 
 .quick-facts span {
   color: var(--muted);
+}
+
+.quick-facts strong {
+  margin-left: auto;
+  text-align: right;
 }
 
 .text-link {
@@ -799,17 +814,18 @@ a {
   gap: 12px;
 }
 
-.research-publication-list a {
+.research-publication-item {
   display: grid;
   gap: 5px;
   position: relative;
   padding: 18px 18px 18px 22px;
   border-top: 1px solid var(--line);
   border-radius: 8px;
+  cursor: pointer;
   transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
-.research-publication-list a::before {
+.research-publication-item::before {
   position: absolute;
   top: 16px;
   bottom: 16px;
@@ -823,16 +839,16 @@ a {
   transition: opacity 180ms ease, transform 180ms ease;
 }
 
-.research-publication-list a:hover,
-.research-publication-list a:focus-visible {
+.research-publication-item:hover,
+.research-publication-item:focus-visible {
   background: color-mix(in srgb, var(--surface) 84%, var(--primary) 8%);
   box-shadow: 0 12px 30px rgba(48, 21, 76, 0.08);
   outline: none;
   transform: translateX(6px);
 }
 
-.research-publication-list a:hover::before,
-.research-publication-list a:focus-visible::before {
+.research-publication-item:hover::before,
+.research-publication-item:focus-visible::before {
   opacity: 1;
   transform: scaleY(1);
 }
@@ -843,13 +859,26 @@ a {
   transition: color 180ms ease;
 }
 
-.research-publication-list a:hover strong,
-.research-publication-list a:focus-visible strong {
+.research-publication-item:hover strong,
+.research-publication-item:focus-visible strong {
   color: var(--primary);
 }
 
 .research-publication-list span {
   color: var(--muted);
+}
+
+.inline-pdf-link {
+  color: var(--primary);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.inline-pdf-link:hover,
+.inline-pdf-link:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
 }
 
 .publication-page {
