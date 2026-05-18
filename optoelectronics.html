@@ -4,25 +4,103 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Optoelectronics - Kang Xu</title>
+    <meta
+      name="description"
+      content="Optoelectronics research by Kang Xu on two-dimensional semiconductors, ferroelectric photovoltaic effects, and photodetectors."
+    />
     <link rel="stylesheet" href="styles.css?v=purple-20260516" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">Kang Xu</a>
+      <a class="brand" href="index.html">Kang Xu-Physics</a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html#about">About</a>
         <a href="index.html#research">Research</a>
+        <a href="publications.html">Publications</a>
         <a href="index.html#experience">Experience</a>
         <a href="blog.html">Blog</a>
         <a href="index.html#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-icon" aria-hidden="true">Theme</span>
+      </button>
     </header>
+
     <main>
-      <section class="page-hero detail-hero">
-        <p class="eyebrow">Tsinghua University / Optoelectronics</p>
-        <h1>光电探测</h1>
-        <p>Detailed content for this research experience will be added here.</p>
+      <section class="research-hero">
+        <div class="research-hero-copy">
+          <p class="eyebrow">Optoelectronics</p>
+          <h1>Build photodetector with hands</h1>
+          <p>
+            Two-dimensional semiconductors provide a versatile platform for light-matter interaction, exciton physics,
+            and device engineering. My postdoctoral work at Tsinghua focused on using layered crystals and
+            heterostructures to build high-performance optoelectronic devices.
+          </p>
+        </div>
+        <figure class="research-hero-media">
+          <img src="assets/Photodetector/Inse-WSe2_dev004.jpg" alt="Two-dimensional semiconductor photodetector device" />
+        </figure>
+      </section>
+
+      <section class="research-section featured-work-section">
+        <div class="research-section-heading">
+          <p class="eyebrow">Featured Work</p>
+        </div>
+        <article class="featured-work-card" data-href="publication-opto-in2se3.html" tabindex="0" role="link" aria-label="Open Bulk Photovoltaic Effect in a Two-Dimensional Ferroelectric Semiconductor alpha-In2Se3">
+          <img class="work-preview" src="assets/publication-previews/opto-in2se3.jpg" alt="Preview for alpha-In2Se3 photovoltaic work" />
+          <div class="featured-work-body">
+            <p class="work-kicker">Nanoscale photodetection</p>
+            <h3>Bulk Photovoltaic Effect in a Two-Dimensional Ferroelectric Semiconductor alpha-In2Se3</h3>
+            <p>Ferroelectric order in a two-dimensional semiconductor enables a bulk photovoltaic response, linking symmetry, polarization, and optoelectronic device behavior.</p>
+            <a href="assets/Photodetector/Bulk%20photovoltaic%20effect%20in%20a%20two-dimensional%20ferroelectric%20semiconductor%20%CE%B1-In2Se3.pdf">Read the paper</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="research-section featured-work-section is-reversed-section">
+        <div class="research-section-heading">
+          <p class="eyebrow">Featured Work</p>
+        </div>
+        <article class="featured-work-card is-reversed" data-href="publication-et-broadband-detectors.html" tabindex="0" role="link" aria-label="Open Broadband Photovoltaic Detectors Based on Two-Dimensional Materials">
+          <img class="work-preview" src="assets/publication-previews/et-broadband-detectors.jpg" alt="Preview for broadband photovoltaic detector work" />
+          <div class="featured-work-body">
+            <p class="work-kicker">Nano Letters</p>
+            <h3>Broadband Photovoltaic Detectors Based on Two-Dimensional Materials</h3>
+            <p>This Nano Letters work demonstrates atomically thin heterostructure photodetectors with broadband response from visible to short-wavelength infrared light.</p>
+            <a href="assets/Photodetector/Long,%20Liu%20et%20al.%202016%20-%20Broadband%20Photovoltaic%20Detectors%20Based.pdf">Read the paper</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="research-section">
+        <div class="research-section-heading">
+          <p class="eyebrow">Related Publications</p>
+        </div>
+        <div class="research-publication-list">
+          <a href="publication-opto-in2se3.html">
+            <strong>Bulk photovoltaic effect in a two-dimensional ferroelectric semiconductor alpha-In2Se3</strong>
+            <span>Ferroelectric 2D semiconductor devices and polarization-enabled photocurrent generation.</span>
+          </a>
+          <a href="publication-et-broadband-detectors.html">
+            <strong>Broadband photovoltaic detectors based on two-dimensional materials</strong>
+            <span>Atomically thin heterostructure photodetectors with broadband response.</span>
+          </a>
+          <a href="assets/Photodetector/Observation%20of%20a%20magnetic%20phase%20transition%20in%20monolayer%20NiPS3.pdf">
+            <strong>Observation of a magnetic phase transition in monolayer NiPS3</strong>
+            <span>Layered magnetic semiconductor physics at the monolayer limit.</span>
+          </a>
+          <a href="assets/Photodetector/Research%20progress%20of%20bulk%20photovoltaic%20effect%20in%20two-dimensional%20materials.pdf">
+            <strong>Research progress of bulk photovoltaic effect in two-dimensional materials</strong>
+            <span>Review of photovoltaic mechanisms in 2D systems.</span>
+          </a>
+        </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Kang Xu</span>
+      <a href="index.html#research">Back to research</a>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

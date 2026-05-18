@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building a Low-cost IQ Modulation Platform - Kang Xu</title>
+    <meta
+      name="description"
+      content="A practical note by Kang Xu on building a low-cost IQ modulation platform for precise microwave phase control in NV-center quantum experiments."
+    />
+    <link rel="stylesheet" href="styles.css?v=purple-20260516" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">Kang Xu-Physics</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#research">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-icon" aria-hidden="true">Theme</span>
+      </button>
+    </header>
+
+    <main>
+      <article class="post">
+        <header class="post-header">
+          <p class="eyebrow">Instrumentation</p>
+          <h1>Building a Low-cost, High-performance IQ Modulation Platform for NV-center Quantum Experiments</h1>
+          <p class="post-meta">Published July 31, 2025 &middot; Adapted from my LinkedIn article</p>
+          <p class="post-dek">
+            Precise microwave phase control is central to NV-center quantum sensing. This note describes a practical
+            IQ modulation platform assembled from affordable second-hand instruments and integrated into a laboratory
+            pulse-control workflow.
+          </p>
+        </header>
+
+        <div class="post-body">
+          <h2>Motivation</h2>
+          <p>
+            Quantum sensing and magnetic resonance experiments with nitrogen-vacancy centers in diamond often require
+            clean microwave phase control. A common route is to use a modern vector signal generator or a high-end AWG,
+            but that can be expensive when the experiment only needs a compact set of stable phase states.
+          </p>
+          <p>
+            In our lab, we tested a more economical approach built around a Tektronix AWG2005 arbitrary waveform
+            generator and an Agilent E4433B ESG signal generator. Both instruments are widely available on the
+            second-hand market, and together they can provide reliable IQ control at a fraction of the cost of a new
+            integrated microwave-control platform.
+          </p>
+
+          <h2>IQ Modulation Strategy</h2>
+          <p>
+            The basic idea is to use two orthogonal control channels: I for the in-phase component and Q for the
+            quadrature component. By choosing the proper I/Q voltage pair, the microwave carrier phase can be mapped
+            to the phase states needed for pulse sequences such as Rabi, Ramsey, and Hahn echo experiments.
+          </p>
+          <p>
+            The AWG2005 was operated in DC mode to provide stable and symmetric bias voltages for the I and Q inputs
+            of the E4433B. In this configuration, the AWG functions less like a waveform synthesizer and more like a
+            precise, programmable phase-state source.
+          </p>
+
+          <figure class="post-figure post-figure-wide">
+            <img
+              src="assets/IQ%20modulation/IQ%20modulation%20princeple.png"
+              alt="IQ modulation phase-control principle"
+            />
+            <figcaption>IQ modulation principle for microwave phase selection.</figcaption>
+          </figure>
+
+          <h2>Hardware Setup</h2>
+          <p>The working setup used a few practical building blocks:</p>
+          <ul>
+            <li>Tektronix AWG2005 for stable DC bias outputs on the I/Q channels.</li>
+            <li>Agilent E4433B ESG signal generator, covering the microwave frequencies needed for NV-center work.</li>
+            <li>Matched microwave switches for the I and Q paths to preserve timing and amplitude symmetry.</li>
+            <li>SpinCore PulseBlaster TTL outputs to coordinate phase selection, microwave gates, laser timing, and acquisition windows.</li>
+          </ul>
+          <p>
+            A small but important detail is timing margin. The I/Q control pulses should start before the microwave
+            pulse and end after it, so the microwave burst occurs only while the selected phase state is already stable.
+            Oscilloscope checks at each stage are essential; they catch timing skew, pulse-width mistakes, and channel
+            asymmetry before those issues appear as confusing quantum-control data.
+          </p>
+
+          <h2>Software Integration</h2>
+          <p>
+            The control layer was integrated into existing laboratory software based on ImageAcquisition and
+            NVCommandCenter workflows. The main addition was custom IQ phase-sequence logic inside the pulse-sequence
+            sweep module, so phase choices could be generated programmatically rather than patched manually into each
+            experiment.
+          </p>
+          <p>
+            Instrument driver functions were also adapted for the E4433B and for the IQ modulation workflow. This made
+            it easier to combine microwave frequency scans, phase cycling, pulse-length optimization, laser timing, and
+            APD acquisition delays in a repeatable way.
+          </p>
+
+          <h2>Experimental Validation</h2>
+          <p>
+            We validated the platform through several standard NV-center experiments. First, ODMR scans showed clear
+            resonance features, including resolved hyperfine structure from nitrogen. Then, after optimizing microwave
+            pulse duration, laser timing, and readout windows, Rabi oscillations confirmed stable coherent driving.
+          </p>
+          <p>
+            Finally, Hahn echo measurements demonstrated reliable phase shifts for the classical
+            pi/2 - pi - pi/2 readout sequence. The observed echo response, including carbon-13 induced revivals,
+            confirmed that the system could support real quantum-sensing measurements rather than only bench-level
+            microwave tests.
+          </p>
+
+          <div class="post-figure-grid" aria-label="Experimental validation figures">
+            <figure class="post-figure">
+              <img src="assets/IQ%20modulation/ODMR.png" alt="ODMR spectrum measured with the IQ modulation platform" />
+              <figcaption>ODMR spectrum.</figcaption>
+            </figure>
+            <figure class="post-figure">
+              <img src="assets/IQ%20modulation/Hyperfinecoupling.png" alt="Resolved hyperfine coupling in ODMR data" />
+              <figcaption>Resolved hyperfine coupling.</figcaption>
+            </figure>
+            <figure class="post-figure">
+              <img src="assets/IQ%20modulation/Rabi.png" alt="Rabi oscillation validation data" />
+              <figcaption>Rabi oscillation.</figcaption>
+            </figure>
+            <figure class="post-figure">
+              <img src="assets/IQ%20modulation/HannechoODMR.png" alt="Hahn echo measurement with carbon-13 revivals" />
+              <figcaption>Hahn echo validation.</figcaption>
+            </figure>
+          </div>
+
+          <h2>Practical Lessons</h2>
+          <ul>
+            <li>Use identical microwave switches for the I and Q channels whenever possible.</li>
+            <li>Give the I/Q phase-selection pulses enough timing margin around the gated microwave pulse.</li>
+            <li>Verify every timing assumption on an oscilloscope before interpreting quantum data.</li>
+            <li>Optimize microwave, laser, and APD windows systematically rather than changing several parameters at once.</li>
+            <li>Keep phase-sequence generation inside the control software so the experiment remains reproducible.</li>
+          </ul>
+
+          <h2>Cost and Value</h2>
+          <p>
+            The core second-hand instruments cost roughly $1500 in total, and the full IQ modulation path can be built
+            for around $2000 excluding the PulseBlaster. For many labs, that is an attractive middle ground: much more
+            capable than improvised manual phase control, but far less expensive than a new high-end vector microwave
+            platform.
+          </p>
+
+          <h2>Conclusion</h2>
+          <p>
+            This project shows that precise phase control for NV-center experiments does not always require a costly
+            all-in-one instrument. With careful hardware matching, timing verification, and software integration, a
+            low-cost IQ modulation system can support high-quality quantum-control experiments.
+          </p>
+
+          <p class="post-source">
+            Original LinkedIn post:
+            <a
+              href="https://www.linkedin.com/pulse/building-low-cost-high-performance-iq-modulation-platform-kang-xu-ovqrf/"
+              target="_blank"
+              rel="noreferrer"
+            >Building a Low-cost, High-performance IQ Modulation Platform</a>
+          </p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Kang Xu</span>
+      <a href="blog.html">Back to blog</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

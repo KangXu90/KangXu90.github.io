@@ -3,26 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Strain-Tuned Transport - Kang Xu</title>
+    <title>Electrical Transport - Kang Xu</title>
+    <meta
+      name="description"
+      content="Electrical transport research by Kang Xu on strain engineering, graphene, van der Waals materials, and memristive layered devices."
+    />
     <link rel="stylesheet" href="styles.css?v=purple-20260516" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">Kang Xu</a>
+      <a class="brand" href="index.html">Kang Xu-Physics</a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html#about">About</a>
         <a href="index.html#research">Research</a>
+        <a href="publications.html">Publications</a>
         <a href="index.html#experience">Experience</a>
         <a href="blog.html">Blog</a>
         <a href="index.html#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-icon" aria-hidden="true">Theme</span>
+      </button>
     </header>
+
     <main>
-      <section class="page-hero detail-hero">
-        <p class="eyebrow">Nanjing University / Strain-Tuned Transport</p>
-        <h1>应力调控电学输运</h1>
-        <p>Detailed content for this research experience will be added here.</p>
+      <section class="research-hero">
+        <div class="research-hero-copy">
+          <p class="eyebrow">Electrical Transport</p>
+          <h1>Bend it to change it</h1>
+          <p>
+            My doctoral work at Nanjing University focused on electrical transport in graphene and van der Waals
+            materials, especially how strain, interfaces, and device geometry can tune electronic behavior in atomically
+            thin systems.
+          </p>
+        </div>
+        <figure class="research-hero-media">
+          <img src="assets/electrical%20transport/AFM%20graphene.png" alt="AFM probe scanning graphene" />
+        </figure>
+      </section>
+
+      <section class="research-section featured-work-section">
+        <div class="research-section-heading">
+          <p class="eyebrow">Featured Work</p>
+        </div>
+        <article class="featured-work-card" data-href="publication-transport-graphene.html" tabindex="0" role="link" aria-label="Open The Positive Piezoconductive Effect in Graphene">
+          <img class="work-preview" src="assets/publication-previews/transport-graphene.jpg" alt="Preview for graphene piezoconductive transport work" />
+          <div class="featured-work-body">
+            <p class="work-kicker">Nature Communications</p>
+            <h3>The Positive Piezoconductive Effect in Graphene</h3>
+            <p>A strain-engineered graphene transport study showing how mechanical deformation can tune electrical conduction in a two-dimensional crystal.</p>
+            <a href="assets/electrical%20transport/Xu,%20Wang%20et%20al.%202015%20-%20The%20positive%20piezoconductive%20effect.pdf">Read the paper</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="research-section featured-work-section is-reversed-section">
+        <div class="research-section-heading">
+          <p class="eyebrow">Featured Work</p>
+        </div>
+        <article class="featured-work-card is-reversed" data-href="publication-transport-memristor.html" tabindex="0" role="link" aria-label="Open Robust Memristors Based on Layered Materials">
+          <img class="work-preview" src="assets/publication-previews/transport-memristor.jpg" alt="Preview for layered-material memristor work" />
+          <div class="featured-work-body">
+            <p class="work-kicker">Nature Electronics</p>
+            <h3>Robust Memristors Based on Layered Materials</h3>
+            <p>Layered-material memristive devices offer robust switching behavior, connecting van der Waals interfaces with nonvolatile electronic functionality.</p>
+            <a href="assets/electrical%20transport/Wang,%20Cai%20et%20al%202018%20-%20Robust%20memristors%20based%20on%20layered.pdf">Read the paper</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="research-section">
+        <div class="research-section-heading">
+          <p class="eyebrow">Related Publications</p>
+        </div>
+        <div class="research-publication-list">
+          <a href="publication-transport-graphene.html">
+            <strong>The positive piezoconductive effect in graphene</strong>
+            <span>Strain-tuned transport response in graphene.</span>
+          </a>
+          <a href="publication-transport-memristor.html">
+            <strong>Robust memristors based on layered materials</strong>
+            <span>Layered-material devices for robust memristive switching.</span>
+          </a>
+          <a href="assets/electrical%20transport/Zeng,%20Liu%20et%20al.%202018%20-%20Gate-Induced%20Interfacial%20Superconductivity%20in%201T-SnSe2.pdf">
+            <strong>Gate-Induced Interfacial Superconductivity in 1T-SnSe2</strong>
+            <span>Electrical control of interfacial superconductivity in a layered system.</span>
+          </a>
+          <a href="assets/electrical%20transport/Wang,%20Liu%20et%20al.%202016%20-%20Gate-tunable%20negative%20longitudinal%20magnetoresistance.pdf">
+            <strong>Gate-tunable negative longitudinal magnetoresistance</strong>
+            <span>Magnetotransport behavior in low-dimensional materials.</span>
+          </a>
+          <a href="assets/electrical%20transport/Zhang,%20Wang%20et%20al.%202017%20-%20Damage-free%20and%20rapid%20transfer.pdf">
+            <strong>Damage-free and rapid transfer of two-dimensional materials</strong>
+            <span>Device fabrication workflow for clean layered-material interfaces.</span>
+          </a>
+        </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Kang Xu</span>
+      <a href="index.html#research">Back to research</a>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

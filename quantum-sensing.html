@@ -4,25 +4,99 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quantum Sensing - Kang Xu</title>
+    <meta
+      name="description"
+      content="Quantum sensing research by Kang Xu using shallow diamond color centers to probe confined fluids, interfaces, and charge-transfer processes."
+    />
     <link rel="stylesheet" href="styles.css?v=purple-20260516" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">Kang Xu</a>
+      <a class="brand" href="index.html">Kang Xu-Physics</a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html#about">About</a>
         <a href="index.html#research">Research</a>
+        <a href="publications.html">Publications</a>
         <a href="index.html#experience">Experience</a>
         <a href="blog.html">Blog</a>
         <a href="index.html#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-icon" aria-hidden="true">Theme</span>
+      </button>
     </header>
+
     <main>
-      <section class="page-hero detail-hero">
-        <p class="eyebrow">CCNY / Quantum Sensing</p>
-        <h1>量子传感</h1>
-        <p>Detailed content for this research experience will be added here.</p>
+      <section class="research-hero">
+        <div class="research-hero-copy">
+          <p class="eyebrow">Quantum Sensing</p>
+          <h1>We like defects in diamond</h1>
+          <p>
+            We use shallow color centers in diamond as local spin probes for nanoscale sensing. The central motivation is
+            to bring quantum measurement close to chemically and physically active interfaces, where water, ions, oils,
+            charge carriers, and engineered nanostructures behave differently from the bulk.
+          </p>
+        </div>
+        <figure class="research-hero-media">
+          <img src="assets/quantum%20sensing/quantum%20sensing%20setup.jpg" alt="Quantum sensing experimental setup" />
+        </figure>
+      </section>
+
+      <section class="research-section featured-work-section">
+        <div class="research-section-heading">
+          <p class="eyebrow">Featured Work</p>
+        </div>
+        <article class="featured-work-card" data-href="publication-qs-nanochannels.html" tabindex="0" role="link" aria-label="Open Slow Water in Engineered Nanochannels Revealed by Color-Center-Enabled Sensing">
+          <img class="work-preview" src="assets/publication-previews/qs-nanochannels.jpg" alt="Preview for nanochannel water sensing work" />
+          <div class="featured-work-body">
+            <p class="work-kicker">Engineered nanochannels</p>
+            <h3>Slow Water in Engineered Nanochannels Revealed by Color-Center-Enabled Sensing</h3>
+            <p>Diamond quantum sensing resolves anomalously slow water dynamics in engineered nanoscale channels, connecting sensor design with confined-fluid physics.</p>
+            <a href="assets/quantum%20sensing/slow-water-in-engineered-nanochannels-revealed-by-color-center-enabled-sensing.pdf">Read the paper</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="research-section featured-work-section is-reversed-section">
+        <div class="research-section-heading">
+          <p class="eyebrow">Featured Work</p>
+        </div>
+        <article class="featured-work-card is-reversed" data-href="publication-qs-charge-injection.html" tabindex="0" role="link" aria-label="Open Photoinduced Charge Injection from Shallow Point Defects in Diamond into Water">
+          <img class="work-preview" src="assets/publication-previews/qs-charge-injection.jpg" alt="Preview for charge injection from diamond defects into water" />
+          <div class="featured-work-body">
+            <p class="work-kicker">Diamond-water interface</p>
+            <h3>Photoinduced Charge Injection from Shallow Point Defects in Diamond into Water</h3>
+            <p>This work examines light-driven charge transfer from shallow diamond defects into water, a key surface process for stable operation of diamond-based quantum sensors in liquids.</p>
+            <a href="assets/quantum%20sensing/xu-et-al-2024-photoinduced-charge-injection-from-shallow-point-defects-in-diamond-into-water%20(5).pdf">Read the paper</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="research-section">
+        <div class="research-section-heading">
+          <p class="eyebrow">Related Publications</p>
+        </div>
+        <div class="research-publication-list">
+          <a href="publication-qs-adsorbed-water.html">
+            <strong>Nanoscale Color Center Sensing of Adsorbed Water in Contact With Oil</strong>
+            <span>Quantum sensing of adsorbed water at oil-contacting diamond interfaces.</span>
+          </a>
+          <a href="publication-qs-nanochannels.html">
+            <strong>Slow Water in Engineered Nanochannels Revealed by Color-Center-Enabled Sensing</strong>
+            <span>Color-center measurements of confined water dynamics in engineered nanochannels.</span>
+          </a>
+          <a href="publication-qs-charge-injection.html">
+            <strong>Photoinduced Charge Injection from Shallow Point Defects in Diamond into Water</strong>
+            <span>Charge-transfer physics at the diamond-water interface.</span>
+          </a>
+        </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Kang Xu</span>
+      <a href="index.html#research">Back to research</a>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
