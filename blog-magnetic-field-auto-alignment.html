@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>An Automated Magnetic Field Alignment System for NV-center Experiments - Kang Xu</title>
+    <meta
+      name="description"
+      content="A practical note by Kang Xu on building a motorized, software-controlled magnetic field alignment system that replaces tedious manual bias-field tuning in NV-center quantum experiments."
+    />
+    <link rel="stylesheet" href="styles.css?v=20260518-site-refresh" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">Kang Xu-Physics</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html#research">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-icon" aria-hidden="true">Theme</span>
+      </button>
+    </header>
+
+    <main>
+      <article class="post">
+        <header class="post-header">
+          <p class="eyebrow">Instrumentation</p>
+          <h1>Painless Magnetic Field Alignment: An Automated Bias-Field System for NV-center Experiments</h1>
+          <p class="post-meta">Published May 29, 2026</p>
+          <p class="post-dek">
+            Aligning a permanent-magnet bias field to the nitrogen-vacancy axis is one of the most tedious daily
+            chores in diamond quantum sensing. This note describes a motorized, software-controlled module that
+            sweeps the magnet position in X, Y, and Z, reads the photoluminescence response, and finds the optimal
+            field automatically &mdash; turning a frustrating manual ritual into a repeatable scan.
+          </p>
+        </header>
+
+        <div class="post-body">
+          <h2>Motivation</h2>
+          <p>
+            Optically addressable spin defects &mdash; nitrogen-vacancy (NV) centers in diamond, and, increasingly,
+            spin defects in van der Waals materials<a href="#ref1" class="ref-link"><sup>[1]</sup></a> &mdash; all
+            rely on a well-controlled static magnetic bias field. The approach here was inspired by that broader line
+            of work, and the same alignment problem shows up across these platforms.
+          </p>
+          <p>
+            Many NV-center experiments need a static bias field of a few hundred gauss aligned along the NV symmetry
+            axis. A small permanent magnet on a translation/rotation stage is the usual, affordable solution, but
+            getting it aligned is painful: the photoluminescence (PL) and ODMR contrast depend sensitively on both
+            the magnitude and the direction of the field, and the optimum sits in a narrow region of a multi-dimensional
+            space. Tuning several micrometer knobs by hand, watching a counter, and iterating is slow, hard to
+            reproduce, and easy to drift out of overnight.
+          </p>
+          <p>
+            The goal of this project was simple: make magnetic field alignment <em>painless</em>. Instead of turning
+            knobs, the magnet sits on motorized stages, and a small piece of software sweeps its position while
+            recording the PL signal, so the best alignment is found &mdash; and can be returned to &mdash; on demand.
+          </p>
+
+          <h2>The Mechanical Module</h2>
+          <p>
+            The magnet is mounted on a stack of motorized translation stages that move it in X, Y, and Z relative to
+            the diamond, with an angular mount that sets the field direction. The design was first laid out as a 3D
+            model and then built into the existing confocal setup inside the laser enclosure.
+          </p>
+
+          <div class="post-figure-grid" aria-label="Mechanical module figures">
+            <figure class="post-figure">
+              <img src="assets/magnetic-alignment/cad-render.png" alt="3D CAD model of the motorized magnet alignment module" />
+              <figcaption>3D model of the motorized magnet module.</figcaption>
+            </figure>
+            <figure class="post-figure">
+              <img src="assets/magnetic-alignment/setup-overview.jpg" alt="The assembled alignment module installed on the optical table" />
+              <figcaption>The module installed in the confocal setup.</figcaption>
+            </figure>
+            <figure class="post-figure">
+              <img src="assets/magnetic-alignment/objective-and-magnet.jpg" alt="Objective lens and magnet on rotation mount with green excitation laser" />
+              <figcaption>Magnet on its rotation mount beside the objective.</figcaption>
+            </figure>
+            <figure class="post-figure">
+              <img src="assets/magnetic-alignment/magnet-holder-detail.jpg" alt="Close-up of the magnet holder and copper microwave wire on a Thorlabs mount" />
+              <figcaption>Close-up of the magnet holder and microwave wire.</figcaption>
+            </figure>
+          </div>
+
+          <p>
+            A key feature of the mount is that the field orientation is reconfigurable, so the same module adapts to
+            different host materials and defect geometries without rebuilding the setup. For a (100)-cut diamond, the
+            NV symmetry axes sit at the magic angle of about 54.7&deg; from the surface normal &mdash; the angle
+            between the &lt;111&gt; and &lt;100&gt; crystal directions &mdash; so the magnet is set to roughly
+            54.7&deg; in elevation to align the bias field along an NV axis. The mount can instead be reconfigured to
+            point the field straight down, normal to the sample, which suits (111)-oriented diamond, where an NV axis
+            lies along the surface normal, as well as out-of-plane defects in hexagonal boron nitride (hBN).
+          </p>
+
+          <h2>Software and GUI</h2>
+          <p>
+            Motion control and data acquisition are wrapped in a MATLAB App. The GUI connects to the motor
+            controllers, exposes per-axis scan ranges (min, max, number of points, speed) for X, Y, and Z, and shows
+            the live PL map as the scan runs. A status panel reports the current target position, and a
+            <em>Set to cursor</em> button lets the user jump the magnet straight to a chosen point on the map.
+          </p>
+
+          <figure class="post-figure post-figure-wide">
+            <img src="assets/magnetic-alignment/software-gui.png" alt="MATLAB App GUI for XYZ magnet sweeping with live PL map" />
+            <figcaption>The alignment GUI: per-axis scan controls and a live PL map.</figcaption>
+          </figure>
+
+          <p>
+            The alignment app was built on top of the lab's existing instrument-control code, reusing the motor
+            drivers, signal-generator configuration, galvo control, and counter-acquisition routines already used for
+            confocal imaging and pulse sequences. Keeping the new <code>magnetalignment</code> app inside the same
+            codebase means alignment scans share the same hardware abstractions as the rest of the experiment.
+          </p>
+
+          <h2>XYZ Auto Sweeping</h2>
+          <p>
+            With the module and GUI in place, alignment becomes a search rather than a chore. A typical workflow is:
+          </p>
+          <ul>
+            <li>Do a coarse Z sweep to set the field magnitude (Z largely controls magnet-to-sample distance, and hence field strength).</li>
+            <li>Run an XY raster at the chosen Z to map how PL varies with field direction in the plane.</li>
+            <li>Read the optimum off the live map, click <em>Set to cursor</em>, and refine with a finer local sweep.</li>
+          </ul>
+          <p>
+            Because every move is logged and repeatable, the same alignment can be recovered exactly the next day
+            instead of being re-discovered by hand.
+          </p>
+
+          <h2>Results</h2>
+          <p>
+            The scans below show the system working across the field range used in our experiments. A Z sweep around
+            500&nbsp;gauss produces a clear, well-defined PL minimum that pinpoints the best magnet-to-sample distance, while an XY raster
+            near 400&nbsp;gauss reveals a bright, well-defined alignment region rather than a vague plateau.
+          </p>
+
+          <div class="post-figure-grid" aria-label="Sweep result figures">
+            <figure class="post-figure">
+              <img src="assets/magnetic-alignment/z-sweep.png" alt="PL counts versus Z position showing a clear minimum near optimal alignment" />
+              <figcaption>Z sweep across ~500&nbsp;G: PL counts dip to a minimum at the optimal distance.</figcaption>
+            </figure>
+            <figure class="post-figure">
+              <img src="assets/magnetic-alignment/xy-sweep.png" alt="2D PL heatmap from an XY sweep showing a bright alignment region" />
+              <figcaption>XY sweep around ~400&nbsp;G: the bright region marks the aligned position.</figcaption>
+            </figure>
+          </div>
+
+          <p>
+            Optical (PL) alignment is then confirmed spectroscopically. ODMR scans at the aligned position show deep,
+            well-resolved resonance dips &mdash; the signature of a bias field that is both the right magnitude and
+            cleanly aligned to the NV axis.
+          </p>
+
+          <div class="post-figure-grid" aria-label="ODMR validation figures">
+            <figure class="post-figure">
+              <img src="assets/magnetic-alignment/odmr-dip-1.png" alt="ODMR resonance dip measured at the aligned field" />
+              <figcaption>ODMR resonance dip at the aligned field.</figcaption>
+            </figure>
+            <figure class="post-figure">
+              <img src="assets/magnetic-alignment/odmr-dip-2.png" alt="A second ODMR resonance dip confirming field alignment" />
+              <figcaption>A second resonance dip confirming clean alignment.</figcaption>
+            </figure>
+          </div>
+
+          <h2>Practical Lessons</h2>
+          <ul>
+            <li>Separate the search: use Z mainly for field magnitude, then sweep XY for direction.</li>
+            <li>Start coarse and zoom in; a fine raster over the whole range wastes time far from the optimum.</li>
+            <li>Show the PL map live &mdash; seeing the gradient makes it obvious which way to refine.</li>
+            <li>Log every move so a good alignment can be reproduced exactly, not rediscovered by hand.</li>
+            <li>Always confirm an optical optimum with ODMR; maximum PL and clean resonance should agree.</li>
+          </ul>
+
+          <h2>Conclusion</h2>
+          <p>
+            A motorized magnet stage plus a small control app turns one of the most tedious parts of NV-center work
+            into a quick, repeatable scan. The same idea &mdash; sweep a physical parameter, read the signal, and let
+            the software find the optimum &mdash; generalizes well beyond field alignment, and it pays for itself the
+            first time you need to recover yesterday's setting without touching a knob.
+          </p>
+
+          <h2>References</h2>
+          <ol class="post-references">
+            <li id="ref1">
+              S. Ru, L. An, H. Liang, Z. Jiang, Z. Li, X. Lyu, F. Zhou, H. Cai, Y. Yang, R. He, R. Cernansky,
+              E. H. T. Teo, M. Mukherjee, A. A. Bettiol, J. Z&uacute;&ntilde;iga-P&eacute;rez, F. Jelezko, and W. Gao,
+              &ldquo;Room-Temperature Electrical Readout of Spin Defects in van der Waals Materials,&rdquo;
+              <em>Phys. Rev. Lett.</em> <strong>135</strong>, 220802 (2025).
+              <a href="https://journals.aps.org/prl/abstract/10.1103/dlzw-dhsr" target="_blank" rel="noreferrer">DOI: 10.1103/dlzw-dhsr</a>
+            </li>
+          </ol>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; <span id="year"></span> Kang Xu</span>
+      <a href="blog.html">Back to blog</a>
+    </footer>
+
+    <script src="script.js?v=20260518-site-refresh"></script>
+  </body>
+</html>
