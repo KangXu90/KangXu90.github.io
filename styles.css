@@ -585,6 +585,25 @@ a {
   text-align: left;
 }
 
+/* Blog cards with a representative image on top */
+.blog-card.has-media {
+  padding: 0;
+}
+
+.blog-card .project-media {
+  aspect-ratio: 2.5 / 1;
+  min-height: 0;
+}
+
+.blog-card .project-body {
+  padding: 20px 22px 22px;
+}
+
+.blog-card:hover .project-media img,
+.blog-card:focus-visible .project-media img {
+  transform: scale(1.045);
+}
+
 .page-hero {
   padding: clamp(36px, 6vw, 62px) 0 clamp(42px, 7vw, 72px);
 }
@@ -1272,6 +1291,22 @@ a {
 
 .post-figure-wide {
   background: #fff;
+}
+
+/* Representative cover image at the top of a post */
+.post-hero {
+  margin: 0 0 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 16px 38px rgba(48, 21, 76, 0.1);
+}
+
+.post-hero img {
+  display: block;
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
 }
 
 .post-figure-grid {
