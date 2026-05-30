@@ -585,23 +585,58 @@ a {
   text-align: left;
 }
 
-/* Blog cards with a representative image on top */
+/* Blog cards with a small representative thumbnail on the left */
 .blog-card.has-media {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
   padding: 0;
+  overflow: hidden;
 }
 
-.blog-card .project-media {
-  aspect-ratio: 2.5 / 1;
-  min-height: 0;
+.blog-card.has-media .project-media {
+  aspect-ratio: auto;
+  min-height: 170px;
 }
 
-.blog-card .project-body {
-  padding: 20px 22px 22px;
+.blog-card.has-media .project-media img {
+  position: absolute;
+  inset: 0;
+}
+
+.blog-card.has-media .project-body {
+  align-self: center;
+  padding: 18px 24px;
 }
 
 .blog-card:hover .project-media img,
 .blog-card:focus-visible .project-media img {
   transform: scale(1.045);
+}
+
+/* Stack the thumbnail on top on narrow screens */
+@media (max-width: 620px) {
+  .blog-card.has-media {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-card.has-media .project-media {
+    aspect-ratio: 2.4 / 1;
+    min-height: 0;
+  }
+
+  .blog-card.has-media .project-media img {
+    position: static;
+  }
+}
+
+/* Compact image-on-top card in the home-page writing grid */
+.writing-grid .project-card .project-media {
+  aspect-ratio: 1.8 / 1;
+  min-height: 0;
+}
+
+.writing-grid .project-card .project-type {
+  text-align: left;
 }
 
 .page-hero {

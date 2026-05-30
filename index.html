@@ -8,7 +8,7 @@
       name="description"
       content="Personal website of Kang Xu, Ph.D., a quantum sensing and condensed matter physics researcher in New York."
     />
-    <link rel="stylesheet" href="styles.css?v=20260518-site-refresh" />
+    <link rel="stylesheet" href="styles.css?v=20260529-blog-covers-3" />
   </head>
   <body>
     <header class="site-header">
@@ -201,23 +201,37 @@
           <!-- <h2 id="writing-title">Research notes, lab methods, and practical lessons.</h2> -->
         </div>
         <div class="writing-grid">
-          <a class="blog-card" href="blog-iq-modulation-platform.html">
-            <p class="project-type">Latest &middot; Instrumentation</p>
-            <h3>Building a Low-cost, High-performance IQ Modulation Platform</h3>
-            <p>
-              A practical note on IQ phase control, microwave timing, and NV-center experiment validation.
-            </p>
-            <span class="project-link">Read article</span>
+          <a class="project-card" href="blog-magnetic-field-auto-alignment.html">
+            <div class="project-media">
+              <img src="assets/magnetic-alignment/objective-and-magnet.jpg?v=2" alt="Green excitation laser through the objective with the magnet on its rotation mount" />
+            </div>
+            <div class="project-body">
+              <p class="project-type">Latest &middot; Instrumentation</p>
+              <h3>Painless Magnetic Field Alignment: An Automated Bias-Field System</h3>
+              <p>
+                A motorized magnet module and MATLAB app that sweep the bias field in X, Y, and Z and find the optimal
+                NV-axis alignment automatically.
+              </p>
+              <span class="project-link">Read article</span>
+            </div>
+          </a>
+          <a class="project-card" href="blog-iq-modulation-platform.html">
+            <div class="project-media">
+              <img src="assets/IQ%20modulation/Rabi.png" alt="Rabi oscillation measured with the IQ modulation platform" />
+            </div>
+            <div class="project-body">
+              <p class="project-type">Instrumentation</p>
+              <h3>Building a Low-cost, High-performance IQ Modulation Platform</h3>
+              <p>
+                A practical note on IQ phase control, microwave timing, and NV-center experiment validation.
+              </p>
+              <span class="project-link">Read article</span>
+            </div>
           </a>
           <article>
             <p class="project-type">Planned Series</p>
             <h3>Instrument control that survives real experiments</h3>
             <p>Python, LabVIEW, VISA/SCPI, trigger timing, DAQ synchronization, and GUI design choices.</p>
-          </article>
-          <article>
-            <p class="project-type">Planned Series</p>
-            <h3>2D materials and optoelectronic measurements</h3>
-            <p>Device prep, cryostat workflows, lock-in measurements, and data interpretation notes.</p>
           </article>
         </div>
         <a class="text-link" href="blog.html">Open the blog index</a>
@@ -246,6 +260,6 @@
       </section>
     </main>
 
-    <script src="script.js?v=20260518-site-refresh"></script>
+    <script src="script.js?v=20260529-blog-covers-3"></script>
   </body>
 </html>
